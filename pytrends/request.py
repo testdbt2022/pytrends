@@ -127,7 +127,7 @@ class TrendReq(object):
                           status_forcelist=TrendReq.ERROR_CODES,
                           method_whitelist=frozenset(['GET', 'POST']))
             s.mount('https://', HTTPAdapter(max_retries=retry))
-
+        self.cookies = self.GetGoogleCookie()
         s.headers.update(self.headers)
         if len(self.proxies) > 0:
             self.cookies = self.GetGoogleCookie()
